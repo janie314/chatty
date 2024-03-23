@@ -1,0 +1,23 @@
+{
+  "spec_version": [1, 0, 0],
+  "version": [1, 0, 0],
+  "init": [
+    "create table if not exists msgs (id integer not null unique, msg text not null, primary key(id autoincrement));"
+  ],
+  "queries": {
+    "read": {
+      "read01": {
+        "sql_template": "select msg from msgs order by id desc limit 30;",
+        "args": [],
+        "cols": ["msg"]
+      }
+    },
+    "write": {
+      "write01": {
+        "sql_template": "insert into msgs (msg) values (?);",
+        "args": ["msg"]
+      }
+    }
+  },
+  "conversions": []
+}
